@@ -1,5 +1,6 @@
 import { Product } from '@/TS/productType'
 import Link from 'next/link'
+import Image from 'next/image'
 import AddButton from '@/components/AddButton'
 import BreadCrumbComponent from '@/components/BreadCrumbComponent'
 import ClothesSizes from '@/components/ClothesSizesButtons'
@@ -37,11 +38,13 @@ const ProductPage = async ({ params } : Props) => {
       >
         {product.images.map((img: string, index: number) => (
           <div key={index} 
-            className='h-[300px] w-[300px] md:h-[70vh] md:w-full my-2'
+            className='md:h-[70vh] md:w-full my-2'
           >
-            <img
+            <Image
               src={img}
               alt={img}
+              width={300}
+              height={300}
               className='w-full h-full object-cover'
             />
           </div>
@@ -120,9 +123,13 @@ const ProductPage = async ({ params } : Props) => {
             {recommend?.map((recom : Product) => (
               <div key={recom.id}
                 className='flex flex-col md:flex-row items-center justify-between mb-2 h-[300px]  md:h-[220px]'
-              >
-                <img src={recom.images[0]} alt="" 
-                  className='w-[200px] h-[200px] rounded-2xl'
+              > 
+                <Image
+                  src={recom.images[0]}
+                  alt={recom.title}
+                  width={200}
+                  height={200}
+                  className='rounded-2xl'
                 />
 
                 <div className='relative h-[200px] md:h-[70%] text-center w-full'>

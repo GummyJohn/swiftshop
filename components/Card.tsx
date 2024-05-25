@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import AddButton from './AddButton'
+import Image from 'next/image'
 import { Product } from '@/TS/productType'
 
 type Props = {
@@ -18,8 +19,13 @@ const Card = ({ image, title, id, price, product } : Props) => {
         <Link href={`/product/${id}`}
           className='absolute h-full w-full z-20 rounded-xl '
         ></Link>
+
         <div className='relative'>
-          <img src={image} alt={title} 
+          <Image
+            src={image}
+            alt={title}
+            width={500} 
+            height={300} 
             className='w-full rounded-xl'
           />
           <AddButton product={product} variant='quick'/>

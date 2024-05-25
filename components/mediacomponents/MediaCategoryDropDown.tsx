@@ -2,11 +2,12 @@
 import { Category } from '@/TS/categoryType'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { SheetClose } from "@/components/ui/sheet"
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 
 type Props = {
-  categories: Category[]
+  categories: Category[] | null
 }
 
 const MediaCategoryDropDown = ({ categories }: Props) => {
@@ -27,15 +28,26 @@ const MediaCategoryDropDown = ({ categories }: Props) => {
       {show && (
         <div className='absolute max-h-60 overflow-y-auto w-full'>
           <Link href='/all' key='all' className='flex items-center my-3 w-full'>
-            <img src='/allicon.png' alt='all' 
-            className='w-[70px] h-[70px] rounded-full' />
+            <Image 
+              src="/allicon.png" 
+              alt="all" 
+              width={70} 
+              height={70} 
+              className="rounded-full" 
+            />
             <SheetClose className='ml-5 w-full'>
               All
             </SheetClose>
           </Link>
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <Link href={`/${category.title}`} key={category.id} className='flex items-center my-3 w-full'>
-              <img src={category.image_url} alt={category.title} className='w-[70px] h-[70px] rounded-full' />
+              <Image 
+                src={category.image_url} 
+                alt={category.title} 
+                width={70}
+                height={70}
+                className='rounded-full' 
+              />
               <SheetClose className='ml-5 w-full'>
                 {category.title}
               </SheetClose>

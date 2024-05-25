@@ -52,8 +52,12 @@ export default async function Home() {
             <div key={category.id}
               className='relative w-full h-[300px] '
             >
-              <img src={category.image_url} alt={category.title} 
-                className='absolute h-full w-full rounded-2xl object-cover'
+              <Image
+                src={category.image_url}
+                alt={category.title}
+                layout="fill"
+                objectFit="cover"
+                className='absolute rounded-2xl'
               />
 
               <div className="absolute bg-black opacity-40 h-full w-full rounded-2xl z-20"/>
