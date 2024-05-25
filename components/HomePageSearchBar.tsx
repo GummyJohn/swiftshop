@@ -3,6 +3,7 @@ import {useState, useEffect, ReactNode} from 'react'
 import { MagnifyingGlassIcon, XMarkIcon} from '@heroicons/react/24/solid'
 import { Product } from '@/TS/productType'
 import Link from 'next/link'
+import Image from 'next/image'
 import { getProducts } from '@/TS/fetchData'
 
 const HomePageSearchBar =  () => {
@@ -73,10 +74,12 @@ const HomePageSearchBar =  () => {
                 key={product.id} 
                 className='flex flex-col md:flex-row items-center justify-between py-2 px-4 hover:bg-gray-300 cursor-pointer dark:bg-gray-600 hover:dark:bg-gray-900'
               >
-                <img 
-                  src={product.images[0]} 
-                  alt={product.title} 
-                  className='rounded-2xl w-[150px] h-[150px]'
+                 <Image
+                  src={product.images[0]}
+                  alt={product.title}
+                  width={150}
+                  height={150}
+                  className='rounded-2xl'
                 />
                 <div className='text-center w-[200px]'>
                   <Link href={`/product/${product.id}`}

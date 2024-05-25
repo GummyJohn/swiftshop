@@ -4,9 +4,10 @@ import Link from 'next/link'
 import { SheetClose } from "@/components/ui/sheet"
 import { getCategories } from '@/TS/fetchData'
 import MediaCategoryDropDown from './MediaCategoryDropDown'
+import supabase from '@/connectSupaBase'
 
 const MediaNav = async () => {
-  const {data : categories} = await getCategories();
+  const {data : categories} = await supabase.from('categories').select();
 
   return (
     <div className='flex flex-col items-center justify-center'>

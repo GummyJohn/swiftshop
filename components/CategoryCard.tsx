@@ -1,7 +1,8 @@
 'use client'
 import { Category } from '@/TS/categoryType'
 import Link from 'next/link'
-import { useEffect, useState, useRef } from 'react'
+import {useState} from 'react'
+import Image from 'next/image'
 
 type Props = {
   categories: Category[] | null;
@@ -33,8 +34,12 @@ const CategoryCard = ({ categories } : Props) => {
               className='w-full hover:underline hover:text-orange-500 my-2'
             >
               <div className='flex flex-col items-center'>
-                <img src='/allicon.png' alt='All'  
-                  className='w-[100px] h-[100px] rounded-2xl'
+                <Image
+                  src='/allicon.png'
+                  alt='All'
+                  width={100}
+                  height={100}
+                  className='rounded-2xl'
                 />
                 <h2 className='text-center w-full'>
                   All
