@@ -56,7 +56,7 @@ const ProductPage = async ({ params } : Props) => {
       
      
 
-      <div className='flex flex-col items-center relative lg:w-[50%] pt-20 p-2 overflow-auto scrollbar-hide h-screen'>
+      <div className='flex flex-col items-center relative lg:w-[50%] pt-20 p-2 h-screen'>
         <BreadCrumbComponent 
           crumbs={[
             { 
